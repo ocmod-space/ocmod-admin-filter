@@ -9,7 +9,6 @@
 ## How to configure
 * Admin > Extensions > Extensions > Modules > [underr] Admin Filter+ > [Install]
 * Admin > Extensions > Extensions > Modules > [underr] Admin Filter+ > [Edit]:
-  * Set the extension parameters.
 
 ## How to uninstall
 * Start by making a backup (both DB and store files)!!!
