@@ -12,6 +12,7 @@
 ### Added
 - Setting product added date
 - Display/filter/sort products by added date
+
 ## [1.2.0] - 2019.02.25:
 ### Fixed
 - Little fixes and improvements
