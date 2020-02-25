@@ -2,15 +2,14 @@ The Admin Filter+ extension is for Opencart CMS 3. It allows to filter product l
 
 [b]Features[/b]
 * Filter products in Admin by:
-  * Category
-  * Manufacturer
-  * Date added
+-- Category
+-- Manufacturer
+-- Date added
 * Optional columns in product list for:
-  * Product categories
-  * Product manufacturers
-  * Product date added
+-- Product categories
+-- Product manufacturers
+-- Product date added
 * Setting products added date
-* Filtering by select (no need to click to the [Filter] button)
 * OCMOD - doesn't change OpenCart files
 
 [b]Change log[/b]
