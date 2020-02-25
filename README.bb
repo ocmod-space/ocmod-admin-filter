@@ -20,18 +20,18 @@ Last update: [2.1.1] - 2020.02.25, see full [url=https://git.io/JvEQZ]changelog[
 See [url=https://git.io/JvEQZ]How-To[/url] on Github
 
 [b]Live demo[/b]
-* [url=http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/admin_filter]Admin Demo - Settings[/url]
-* [url=http://ocmod.freevar.com/oc3020/a/admin/index.php?route=catalog/product]Admin Demo - Product list[/url]
-
-[b]Links[/b]
-* [url=https://git.io/JvEQZ]GitHub[/url]
-* [url=https://underr.space/notes/projects/project-0015.html]Homepage[/url]
+[url=http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/admin_filter]Admin Demo - Settings[/url]
+[url=http://ocmod.freevar.com/oc3020/a/admin/index.php?route=catalog/product]Admin Demo - Product list[/url]
 
 [b]License[/b]
 [url=https://git.io/JvEQ8]End-User License Agreement[/url]
 
+[b]Additional Links[/b]
+[url=https://github.com/search?q=underr-ua%2Focmod3-&type=Repositories]GitHub[/url]
+[url=https://underr.space/tag:opencart]Homepage[/url]
+
 [b]Related modules and extensions[/b]
-* [url=https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34415]Filter by Category (free)[/url]
+[url=https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34415]Filter by Category (free)[/url]
 
 [b]Support[/b]
 Please feel free to contact me through the «Get Support» form, comments or by email: [url=mailto:ocmod.space@gmail.com]ocmod.space@gmail.com[/url] (please, start subject with [Opencart]). But keep in mind: it is almost impossible to provide support without an access to OpenCart and/or FTP!

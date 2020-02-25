@@ -20,9 +20,9 @@ The Admin Filter+ extension is for Opencart CMS 3. It allows to filter product l
 * [Admin Demo - Settings](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/admin_filter)
 * [Admin Demo - Product list](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=catalog/product)
 
-## Links
-* [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36080)
-* [Homepage](https://underr.space/en/notes/projects/project-0015.html)
-
 ## License
 [End-User License Agreement](https://raw.githubusercontent.com/underr-ua/ocmod3-admin-filter-plus/master/EULA.txt)
+
+## Additional Links
+* [Homepage](https://underr.space/tag:opencart)
+* [OpenCart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension&filter_member=ocmod.space)
