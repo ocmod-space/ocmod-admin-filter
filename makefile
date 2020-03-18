@@ -49,12 +49,15 @@ enc: pwd
 	@if [ -f "$(pwd_file)" ]; then \
 		echo Making FCL...; \
 		mkdir -p "$(bin_dir)"; \
-		fcl make -q -f -E.git -E"$(bin_dir)" -E"$(img_dir)" -E"$(zip_dir)" -E"$(pwd_file)" "$(bin_dir)/$(mod_name)"; \
+		fcl make -q -f -E.git -E"$(bin_dir)" -E"$(img_dir)" -E"$(src_dir)" -E"$(zip_dir)" -E"$(pwd_file)" "$(bin_dir)/$(mod_name)-doc" ; \
+		fcl make -q -f -D"$(src_dir)" "$(bin_dir)/$(mod_name)-src"; \
 		echo Making FCL [DONE]; \
 		echo Making HIDEG...; \
-		hideg "$(bin_dir)/$(mod_name).fcl"; \
+		hideg "$(bin_dir)/$(mod_name)-doc.fcl"; \
+		hideg "$(bin_dir)/$(mod_name)-src.fcl"; \
 		echo Making HIDEG [DONE]; \
-		rm -f "$(bin_dir)/$(mod_name).fcl"; \
+		rm -f "$(bin_dir)/$(mod_name)-doc.fcl"; \
+		rm -f "$(bin_dir)/$(mod_name)-src.fcl"; \
 	fi
 
 # check pwd-file
@@ -73,20 +76,20 @@ git:
 	fi
 
 # decrypting/unpacking bin
+# for doc use 'make list fcl=doc'
+# for src use 'make list fcl=src'
 dec: pwd
-	@if [ -f "$(pwd_file)" -a -f "$(bin_dir)/$(mod_name).fcl.g" ]; then \
-		hideg "$(bin_dir)/$(mod_name).fcl.g"; \
-		fcl extr -f "$(bin_dir)/$(mod_name).fcl"; \
-	elif [ -a -f "$(bin_dir)/$(mod_name).fcl" ]; then \
-		fcl extr -f "$(bin_dir)/$(mod_name).fcl"; \
+	@if [ -f "$(pwd_file)" -a -f "$(bin_dir)/$(mod_name)-$(fcl).fcl.g" ]; then \
+		hideg "$(bin_dir)/$(mod_name)-$(fcl).fcl.g"; \
+		fcl extr -f "$(bin_dir)/$(mod_name)-$(fcl).fcl"; \
 	fi
 
 # show list of files in fcl-file
+# for doc use 'make list fcl=doc'
+# for src use 'make list fcl=src'
 list: pwd
-	@if [ -f "$(pwd_file)" -a -f "$(bin_dir)/$(mod_name).fcl.g" ]; then \
-		hideg "$(bin_dir)/$(mod_name).fcl.g"; \
-		fcl list "$(bin_dir)/$(mod_name).fcl"; \
-		rm -f "$(bin_dir)/$(mod_name).fcl"; \
-	elif [ -a -f "$(bin_dir)/$(mod_name).fcl" ]; then \
-		fcl list -f "$(bin_dir)/$(mod_name).fcl"; \
+	@if [ -f "$(pwd_file)" -a -f "$(bin_dir)/$(mod_name)-$(fcl).fcl.g" ]; then \
+		hideg "$(bin_dir)/$(mod_name)-$(fcl).fcl.g"; \
+		fcl list "$(bin_dir)/$(mod_name)-$(fcl).fcl"; \
+		rm -f "$(bin_dir)/$(mod_name)-$(fcl).fcl"; \
 	fi
