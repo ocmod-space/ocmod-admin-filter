@@ -13,7 +13,7 @@ The Admin Filter+ extension is for Opencart CMS 3. It allows to filter product l
 * OCMOD - doesn't change OpenCart files
 
 [b]Change log[/b]
-Last update: [2.1.1] - 2020.02.25, see full [url=https://git.io/JvEQZ]changelog[/url] on Github
+Last update: [2.2.0] - 2020.03.19, see full [url=https://git.io/JvEQZ]changelog[/url] on Github
 
 [b]How-To[/b]
 See [url=https://git.io/JvEQZ]How-To[/url] on Github
@@ -33,7 +33,7 @@ See [url=https://git.io/JvEQZ]How-To[/url] on Github
 [url=https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34415]Filter by Category (free)[/url]
 
 [b]Support[/b]
-Please feel free to contact me through the «Get Support» form, comments or by email: [url=mailto:ocmod.space@gmail.com]ocmod.space@gmail.com[/url] (please, start subject with [Opencart]). But keep in mind: it is almost impossible to provide support without an access to OpenCart and/or FTP!
+Please feel free to contact me through the «Get Support» form, comments or by email: [url=mailto:ocmod.space@gmail.com]ocmod.space@gmail.com[/url] (please, start subject with [Opencart] Admin Filter+). But keep in mind: it is almost impossible to provide support without an access to OpenCart and/or FTP!
 
 [b]Feedback[/b]
 I like feedback, so write comments and rate the extension ("Rate your Downloads" section in your OpenCart Marketplace account)

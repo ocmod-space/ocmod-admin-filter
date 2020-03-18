@@ -1,5 +1,17 @@
 # Change log
 
+## [2.2.0] - 2020.03.19:
+### Added
+- SKU filter with autocomplete
+- SKU column
+- SKU and Model filters apply by press Enter button
+- Link of the last breadcrumb of the product list removes all filters
+### Changed
+- Settings view
+- Using of OC Event System
+### Fixed
+- Code improvements
+
 ## [2.1.1] - 2020.02.25:
 ### Changed
 - Settings view
