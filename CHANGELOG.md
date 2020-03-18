@@ -2,7 +2,7 @@
 
 ## [2.1.1] - 2020.02.25:
 ### Changed
-- Settings interface
+- Settings view
 
 ## [2.1.0] - 2019.10.08:
 ### Added
