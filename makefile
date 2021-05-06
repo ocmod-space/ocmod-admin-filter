@@ -34,8 +34,8 @@ zip: enc
 	@echo Setting date/time [DONE]
 
 	@echo Making ZIP...;
-	cd "$(src_dir)" && zip -9qrX "../$(zip_dir)/$(ocm_file)" * "../$(lic_file)"
-
+	cd "$(src_dir)" && zip -9qrX "../$(zip_dir)/$(ocm_file)" *
+	cd "$(src_dir)" && zip -9qrXj "../$(zip_dir)/$(ocm_file)" "../$(lic_file)"
 	@echo Making ZIP [DONE]
 
 	@echo
@@ -70,9 +70,9 @@ pwd: git
 git:
 	@if [ ! -z $(ignore_src) ]; then \
 		grep -xqF -- "$(src_dir)" ".gitignore" || printf "\n$(src_dir)\n" >> ".gitignore"; \
-	else \
-		grep -v "$(src_dir)" ".gitignore" > ".gitignore.tmp"; \
-		mv -f .gitignore.tmp .gitignore; \
+	# else \
+		# grep -v "$(src_dir)" ".gitignore" > ".gitignore.tmp"; \
+		# mv -f .gitignore.tmp .gitignore; \
 	fi
 
 # decrypting/unpacking bin

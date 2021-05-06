@@ -5,10 +5,10 @@
 * Admin > Extensions > Installer > [Upload]: admin-filter-plus.ocmod.zip
 * Admin > Extensions > Modifications > [Refresh]
 * Admin > Dashboard > [Developer Settings] > [Refresh]
+* Admin > Extensions > Extensions > Modules > [underr] Admin Filter+ > [Install]
 
 ## How to configure
-* Admin > Extensions > Extensions > Modules > [underr] Admin Filter+ > [Install]
-* Admin > Extensions > Extensions > Modules > [underr] Admin Filter+ > [Edit]:
+* Admin > Extensions > Extensions > Modules > [underr] Admin Filter+ > [Edit]
 
 ## How to uninstall
 * Start by making a backup (both DB and store files)!!!
