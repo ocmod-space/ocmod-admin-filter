@@ -10,7 +10,6 @@ The Admin Filter+ extension is for Opencart CMS 3.x. It allows to filter and sor
   - SKU
   - Date added
 * Custom date added of products
-* Product quantity, including the quantity of product options
 * Does not change OC system files
 
 ## Live demo
