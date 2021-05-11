@@ -3,6 +3,8 @@
 ## [2.3.0] - 2021.05.06:
 ### Added
 - Displaying of total product quantity, including the quantity of product options
+### Fixed
+- Date added
 
 ## [2.2.0] - 2020.03.19:
 ### Added
