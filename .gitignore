@@ -1,15 +1,7 @@
-# Allow
-!bin/*.fcl.g
-!EULA.txt
-!LICENSE.txt
-!makefile
-!*.md
-
-# Ignore
-img
-*.code-workspace
-*.bb
-*.php_cs
-*.pwd
-*.zip
+_inc
+pic
 src
+zip
+*.bb
+*.pwd
+pakdef.php

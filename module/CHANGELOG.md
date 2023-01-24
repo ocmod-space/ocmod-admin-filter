@@ -1,5 +1,9 @@
 # Change log
 
+## [2.3.1] - 2023.01.23:
+### Internal
+- Code improvements
+
 ## [2.3.0] - 2021.05.06:
 ### Added
 - Displaying of total product quantity, including the quantity of product options
