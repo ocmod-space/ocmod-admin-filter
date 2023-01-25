@@ -1,6 +1,6 @@
 End-User License Agreement (EULA)
 
-The EULA was last updated on 2022.02.21
+The EULA was last updated on 2023.01.24
 
 Please read this End-User License Agreement agreement carefully before
 downloading, installing or using the Software. It provides a license to use the
