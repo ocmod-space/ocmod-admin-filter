@@ -8,7 +8,7 @@ Compatible with OpenCart 3.x versions.
 * Sorting/filtering products by category, manufacturer, SKU, date added
 * Custom date added of products.
 * Total product quantity, including the quantity of product options.
-* Does not change OC system files (OCMOD).
+* Does not modify system files (OCMOD).
 
 ## Live demo
 [Admin Demo - Settings](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/admin_filter)  
