@@ -1,7 +1,7 @@
 # Admin Filter
 
 ## Description
-**Admin Filter** extension allows to filter and sort the product list by many parameters - by categories, manufacturers, SKU, date added..  
+**Admin Filter** extension allows to filter and sort the product list by additional parameters.  
 [Read more...](./module/README.md)
 
 ## Links/
