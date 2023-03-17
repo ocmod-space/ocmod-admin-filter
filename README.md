@@ -1,8 +1,9 @@
 # Admin Filter
 
 ## Description
-**Admin Filter** extension allows filter and sort the product list by many parameters - by categories, manufacturers, sku, date added.  
+**Admin Filter** extension allows to filter and sort the product list by many parameters - by categories, manufacturers, SKU, date added..  
 [Read more...](./module/README.md)
 
-## Download
-[OpenCart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36080)
+## Links/
+[OpenCart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36080)  
+[ocmod.space](https://www.ocmod.space/admin-filter/)  
