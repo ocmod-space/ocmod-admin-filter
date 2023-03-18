@@ -1,5 +1,9 @@
 # Change log
 
+## [2.3.2] - 2023.03.18:
+### Fixed
+- Event handler in Product list to automatic filter without pressing the Filter button
+
 ## [2.3.1] - 2023.01.23:
 ### Internal
 - Code improvements
