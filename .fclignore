@@ -5,6 +5,6 @@ zip
 .fclignore
 .gitignore
 .php-cs-fixer.php_cs
-.admin-filter.code-workspace
+.code-workspace
 hideg.pwd
 pakrun.php

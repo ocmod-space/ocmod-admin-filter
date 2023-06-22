@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "../../../dist/src"
+			"path": "../../../src/rel"
 		},
 	],
 	"settings": {}

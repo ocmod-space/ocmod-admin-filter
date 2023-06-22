@@ -1,9 +1,11 @@
 <?php
+
 /*
  * This document has been generated with
  * https://mlocati.github.io/php-cs-fixer-configurator/#version:3.2.1|configurator
  * you can change this configuration by importing this file.
  */
+
 $config = new PhpCsFixer\Config();
 
 return $config
@@ -15,7 +17,7 @@ return $config
 		// Each element of an array must be indented exactly once.
 		'array_indentation' => true,
 		// PHP arrays should be declared using the configured syntax.
-		'array_syntax' => array('syntax' => 'short'),
+		'array_syntax' => array('syntax' => 'long'),
 		// Converts backtick operators to `shell_exec` calls.
 		'backtick_to_shell_exec' => true,
 		// Binary operators should be surrounded by space as configured.
@@ -44,6 +46,7 @@ return $config
 				'switch',
 				'throw',
 				'try',
+				'while',
 			),
 		),
 		// The body of each structure MUST be enclosed by braces. Braces should be properly placed. Body of braces should be properly indented.
@@ -62,10 +65,6 @@ return $config
 		'class_definition' => array('single_line' => true),
 		// Namespace must not contain spacing, comments or PHPDoc.
 		'clean_namespace' => true,
-		// Using `isset($var) &&` multiple times should be done in one call.
-		'combine_consecutive_issets' => true,
-		// Calling `unset` on multiple items should be done in one call.
-		'combine_consecutive_unsets' => true,
 		// Remove extra spaces in a nullable typehint.
 		'compact_nullable_typehint' => true,
 		// Concatenation should be spaced according configuration.
@@ -80,8 +79,6 @@ return $config
 		'elseif' => true,
 		// Empty loop-body must be in configured style.
 		'empty_loop_body' => true,
-		// Empty loop-condition must be in configured style.
-		'empty_loop_condition' => true,
 		// PHP code MUST use only UTF-8 without BOM (remove BOM).
 		'encoding' => true,
 		// Escape implicit backslashes in strings and heredocs to ease the understanding of which are special chars interpreted by PHP and which not.
@@ -103,9 +100,7 @@ return $config
 		// Convert `heredoc` to `nowdoc` where possible.
 		'heredoc_to_nowdoc' => false,
 		// Include/Require and file path should be divided with a single space. File path should not be placed under brackets.
-		'include' => true,
-		// Pre- or post-increment and decrement operators should be used if possible.
-		'increment_style' => true,
+		'include' => false,
 		// Code MUST use configured indentation type.
 		'indentation_type' => true,
 		// Integer literals must be in correct case.
@@ -128,10 +123,7 @@ return $config
 		'magic_method_casing' => true,
 		// In method arguments and method call, there MUST NOT be a space before each comma and there MUST be one space after each comma. Argument lists MAY be split across multiple lines, where each subsequent line is indented once. When doing so, the first item in the list MUST be on the next line, and there MUST be only one argument per line.
 		'method_argument_space' => array(
-			// 'keep_multiple_spaces_after_comma' => false,
 			'on_multiline' => 'ignore',
-			// 'on_multiline' => 'ensure_fully_multiline'
-			// 'on_multiline' => 'ensure_single_line'
 		),
 		// Method chaining MUST be properly indented. Method chaining with different levels of indentation is not supported.
 		'method_chaining_indentation' => true,
@@ -187,12 +179,8 @@ return $config
 		'no_spaces_after_function_name' => true,
 		// There MUST NOT be spaces around offset braces.
 		'no_spaces_around_offset' => true,
-		// There MUST NOT be a space after the opening parenthesis. There MUST NOT be a space before the closing parenthesis.
-		// 'no_spaces_inside_parenthesis' => true,
 		// Replaces superfluous `elseif` with `if`.
-		'no_superfluous_elseif' => true,
-		// Removes `@param`, `@return` and `@var` tags that don't provide any useful information.
-		'no_superfluous_phpdoc_tags' => array('allow_mixed' => true, 'allow_unused_params' => true),
+		'no_superfluous_elseif' => false,
 		// Remove trailing commas in list function calls.
 		'no_trailing_comma_in_list_call' => true,
 		// PHP single-line arrays should not have trailing comma.
@@ -210,7 +198,7 @@ return $config
 		// Unused `use` statements must be removed.
 		'no_unused_imports' => true,
 		// There should not be useless `else` cases.
-		'no_useless_else' => true,
+		'no_useless_else' => false,
 		// There should not be an empty `return` statement at the end of a function.
 		'no_useless_return' => true,
 		// In array declaration, there MUST NOT be a whitespace before each comma.
@@ -225,8 +213,6 @@ return $config
 		'object_operator_without_whitespace' => true,
 		// Operators - when multiline - must always be at the beginning or at the end of the line.
 		'operator_linebreak' => array('only_booleans' => true),
-		// Orders the elements of classes/interfaces/traits.
-		'ordered_class_elements' => true,
 		// Ordering `use` statements.
 		'ordered_imports' => true,
 		// PHPUnit annotations should be a FQCNs including a root namespace.
@@ -252,9 +238,9 @@ return $config
 		// No alias PHPDoc tags should be used.
 		'phpdoc_no_alias_tag' => true,
 		// `@return void` and `@return null` annotations should be omitted from PHPDoc.
-		'phpdoc_no_empty_return' => true,
+		'phpdoc_no_empty_return' => false,
 		// `@package` and `@subpackage` annotations should be omitted from PHPDoc.
-		'phpdoc_no_package' => true,
+		'phpdoc_no_package' => false,
 		// Classy that does not inherit must not have `@inheritdoc` tags.
 		'phpdoc_no_useless_inheritdoc' => true,
 		// Annotations in PHPDoc should be ordered so that `@param` annotations come first, then `@throws` annotations, then `@return` annotations.
@@ -312,7 +298,7 @@ return $config
 		// Single-line comments and multi-line comments with only one line of actual content should use the `//` syntax.
 		'single_line_comment_style' => array(),
 		// Convert double quotes to single quotes for simple strings.
-		'single_quote' => true,
+		'single_quote' => false,
 		// Ensures a single space after language constructs.
 		'single_space_after_construct' => true,
 		// Each trait `use` must be done as single statement.
@@ -332,7 +318,7 @@ return $config
 		// Standardize spaces around ternary operator.
 		'ternary_operator_spaces' => true,
 		// Multi-line arrays, arguments list and parameters list must have a trailing comma.
-		'trailing_comma_in_multiline' => true,
+		'trailing_comma_in_multiline' => false,
 		// Arrays should be formatted like function/method arguments, without leading or trailing single line space.
 		'trim_array_spaces' => true,
 		// A single space or none should be around union type operator.
@@ -343,13 +329,6 @@ return $config
 		'visibility_required' => true,
 		// In array declaration, there MUST be a whitespace after each comma.
 		'whitespace_after_comma_in_array' => true,
-		// Write conditions in Yoda style (`true`), non-Yoda style (`['equal' => false, 'identical' => false, 'less_and_greater' => false]`) or ignore those conditions (`null`) based on configuration.
-		'yoda_style' => array(
-			'always_move_variable' => false,
-			'equal'                => false,
-			'identical'            => false,
-			'less_and_greater'     => false,
-		),
 	))
 	->setIndent("\t")
 	->setLineEnding("\n")
@@ -359,3 +338,4 @@ return $config
 			->in(__DIR__)
 	)
 ;
+?>
