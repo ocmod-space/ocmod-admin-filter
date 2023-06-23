@@ -13,8 +13,8 @@ Compatible with OpenCart 3.x versions.
 * Does not modify system files (OCMOD).
 
 ## Live demo
-[Extension settings](https://demo.ocmod.space/a/admin/admin/index.php?route=extension/module/admin_filter).  
-[Product list](https://demo.ocmod.space/a/admin/admin/index.php?route=catalog/product).  
+Admin Filter [settings](https://demo.ocmod.space/a/admin/admin/index.php?route=extension/module/admin_filter).  
+Admin Filter in [action](https://demo.ocmod.space/a/admin/admin/index.php?route=catalog/product).  
 
 ## License
 [End-User License Agreement](https://raw.githubusercontent.com/ocmod-space/ocmod-admin-filter/main/EULA.txt).
