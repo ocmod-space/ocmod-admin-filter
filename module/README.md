@@ -20,5 +20,5 @@ Compatible with OpenCart 3.x versions.
 [End-User License Agreement](https://raw.githubusercontent.com/ocmod-space/ocmod-admin-filter/main/EULA.txt).
 
 ## Links
-* [**OpenCart Marketplace**](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36080).
-* [**OCMod Space**](https://www.ocmod.space/admin-filter/).
+* **Admin Filter** on [**OpenCart Marketplace**](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36080).
+* [**Admin Filter**](https://www.ocmod.space/admin-filter) web page.
