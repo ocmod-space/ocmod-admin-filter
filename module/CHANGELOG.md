@@ -3,8 +3,6 @@
 ## [2.3.3] - 2023.07.20:
 ### Fixed
 - Event uninstaller.
-### Internal
-- Coding standards.
 
 ## [2.3.2] - 2023.03.18:
 ### Fixed
