@@ -1,12 +1,18 @@
 <?php
 
-// PAK - OpenCart Extension Packer v0.4.4
+require_once 'ocmodw.ini.php';
+require_once 'ocmodw.inc/ocmodw.fun.php';
+require_once 'ocmodw.inc/ocmodw.req.php';
+require_once 'ocmodw.inc/ocmodw.opt.php';
 
-require_once '_pak/conf.php';
+define('FCLDIR', '_fcl');
+define('FCLIGNORE', '.fclignore'); // fcl ignorelist
+define('SRCDIR', 'src');
+define('ZIPDIR', 'zip');
+define('ZIPEXT', '.ocmod.zip');
 
-require_once '_pak/func.php';
-
-require_once '_pak/reqd.php';
+define('MDIR', 'module'); // module dir
+define('ADIR', 'addons'); // addons dir
 
 /*
 set_error_handler(function ($errno, $errstr, $errfile, $errline) {
@@ -22,13 +28,16 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 $clo = get_clo();
 $basename = strtolower(basename(getcwd()));
 if (isset($clo[MAKEZIP]) && $clo[MAKEZIP] !== false) {
-	require_once 'pakdef.php';
-
 	$workdir = getWd($clo[MAKEZIP]);
-
 	if ($workdir) {
-		$srcdir = getConcatPath($workdir, SRCDIR);
-		$zipdir = getConcatPath($workdir, ZIPDIR);
+		$subdir = $clo[WORKDIR] ?: '';
+		$srcdir = getConcatPath($workdir, SRCDIR, $subdir);
+
+		if (!is_dir($srcdir)) {
+			output('There is no such source directory "' . $srcdir . '"', true);
+		}
+
+		$zipdir = getConcatPath($workdir, ZIPDIR, $subdir);
 
 		if (strpos($workdir, ADIR) === 0) {
 			$part = explode(DIRECTORY_SEPARATOR, $workdir);
@@ -37,21 +46,27 @@ if (isset($clo[MAKEZIP]) && $clo[MAKEZIP] !== false) {
 			unset($part);
 		}
 
-		define('MODFILE', $basename);
+		define('XMLCODE', $basename);
 
-		$zipfile = getConcatPath($zipdir, $basename . ZIPEXT);
+		$general_name = str_replace('--', ' | ', $basename);
+		$general_name = str_replace('-', ' ', $general_name);
+		$general_name = str_replace('_', ' ', $general_name);
+		$general_name = ucwords($general_name);
+		$general_name = str_replace(' | ', '|', $general_name);
 
-		$mod_code = str_replace('--', '|', $basename);
+		define('GENERAL_NAME', $general_name);
 
-		define('MODCODE', $mod_code);
+		$short_name = str_replace('--', '/', $basename);
+		$short_name = str_replace('-', '_', $short_name);
 
-		$mod_name = str_replace('|', ' ', $mod_code);
-		$mod_name = ucwords($mod_name);
-		$mod_name = str_replace(' ', '|', $mod_name);
-		$mod_name = str_replace('-', ' ', $mod_name);
-		$mod_name = ucwords($mod_name);
+		define('SHORT_NAME', $short_name);
 
-		define('MODNAME', $mod_name);
+		$full_name = '/ocmod.space/' . str_replace('--', '/', $basename);
+		$full_name = str_replace('-', '_', $full_name);
+
+		define('FULL_NAME', $full_name);
+
+		$zipfile = getConcatPath($zipdir, str_replace('-', '_', $basename) . ZIPEXT);
 
 		if (chkdir($srcdir) && chkdir($zipdir)) {
 			if (is_file($zipfile)) {
@@ -97,7 +112,7 @@ if (isset($clo[MAKEZIP]) && $clo[MAKEZIP] !== false) {
 		unlink($fclfile);
 	}
 } else {
-	include '_pak/help.php';
+	require_once 'ocmodw.inc/ocmodw.hlp.php';
 
 	output('Numbers:');
 

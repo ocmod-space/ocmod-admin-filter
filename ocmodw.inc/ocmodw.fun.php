@@ -6,19 +6,29 @@ function get_clo() {
 	$o = '';
 
 	$o .= MAKEZIP . '::';
-	$o .= DIRPATH . '::';
+	$o .= WORKDIR . '::';
 	$o .= GETHELP;
 	$o .= MAKEFCL;
 	$o .= EXTRFCL;
 	$o .= LISTFCL;
 
 	$options = getopt($o);
-	$clo = array();
+	$clo = [];
 
 	if (isset($options[MAKEZIP])) {
 		$clo[MAKEZIP] = ($options[MAKEZIP] !== false)
 			? ($options[MAKEZIP] == (int)$options[MAKEZIP] ? (int)$options[MAKEZIP] : false)
 			: false;
+
+		if (isset($options[WORKDIR])) {
+			$options[WORKDIR] ??= '';
+		}
+
+		// if ($options[WORKDIR] && !in_array($options[WORKDIR], ['2x', '3x', '4x', 'old'])) {
+		//   output('Allowed sub-directory values are: "2x", "3x", "4x", "old"!', true);
+		// }
+
+		$clo[WORKDIR] = $options[WORKDIR] ?? '';
 	} elseif (isset($options[GETHELP])) {
 		$clo[GETHELP] = 1;
 	} elseif (isset($options[MAKEFCL])) {
@@ -33,26 +43,28 @@ function get_clo() {
 }
 
 // returns path with a directory separator on the right or without
-function getConcatPath(string $parent, string $child) {
-	return trim($parent, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . trim($child, DIRECTORY_SEPARATOR);
+function getConcatPath() {
+	$path = '';
+
+	foreach (func_get_args() as $dir) {
+		if ($dir) $path .= trim($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+	}
+
+	return trim($path, DIRECTORY_SEPARATOR);
 }
 
 function getWd($num) {
-	if ($num === 0 && is_dir(MDIR)) {
-		return MDIR;
-	}
+	if ($num === 0 && is_dir(MDIR)) return MDIR;
 
 	$addons = getDirList(ADIR);
 
-	if ($addons && isset($addons[$num - 1])) {
-		return getConcatPath(ADIR, $addons[$num - 1]);
-	}
+	if ($addons && isset($addons[$num - 1])) return getConcatPath(ADIR, $addons[$num - 1]);
 
 	return false;
 }
 
 function getDirList(string $path) {
-	$list = array();
+	$list = [];
 
 	if (is_dir($path)) {
 		foreach (scandir($path) as $dir) {
@@ -67,7 +79,7 @@ function getDirList(string $path) {
 }
 
 function getFileList($path) {
-	$files = array();
+	$files = [];
 
 	if (is_dir($path)) {
 		$iterator = new RecursiveIteratorIterator(
@@ -88,14 +100,12 @@ function getFileList($path) {
 }
 
 function chkdir(string $dir) {
-	if (is_dir($dir)) {
-		return true;
-	}
+	if (is_dir($dir)) return true;
 
 	return mkdir($dir);
 }
 
-function mkzip($srcdir, $zipfile, $force = false) {
+function mkzip($srcdir, $zipfile, $force = false): void {
 	if (is_file($zipfile) && !$force) {
 		output($zipfile . ' already exists! Use force flag', true);
 	}
@@ -115,32 +125,30 @@ function mkzip($srcdir, $zipfile, $force = false) {
 			}
 		}
 
-		try {
-			$zip->close();
+		if ($zip->close() === true) {
+			output('ZIP-file was created successfully: ' . $zipfile . PHP_EOL);
 
-			output('ZIP-file was created successfully: ' . $zipfile . "\n");
-		} catch (Exception $e) {
-			output(' creating "' . $zipfile . '" error:' . "\n" . $e, true);
-		}
+			// PHP >= 8.0.0, PECL zip >= 1.16.0
+			if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
+				$zip->open($zipfile);
 
-		// PHP >= 8.0.0, PECL zip >= 1.16.0
-		if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
-			$zip->open($zipfile);
+				for ($i = 0; $i < $zip->numFiles; ++$i) {
+					$stat = $zip->statIndex($i);
 
-			for ($i = 0; $i < $zip->numFiles; ++$i) {
-				$stat = $zip->statIndex($i);
+					$zip->setMtimeIndex($i, strtotime('2024-01-01 00:00:01'));
+				}
 
-				$zip->setMtimeIndex($i, strtotime('2023-01-01 00:00:01'));
+				$zip->close();
 			}
-
-			$zip->close();
+		} else {
+			output('Failure to creating file: "' . $zipfile . PHP_EOL . $e, true);
 		}
 	} else {
 		output('can not create "' . $zipfile . '"!', true);
 	}
 }
 
-function replacer($file, $to_replace = array()) {
+function replacer($file, $to_replace = []) {
 	if (!$to_replace) {
 		$to_replace = get_defined_constants(true)['user'];
 	}
@@ -151,15 +159,30 @@ function replacer($file, $to_replace = array()) {
 		while (!feof($pointer)) {
 			$line = fgets($pointer);
 
-			if (strpos($line, '<insertfile>') !== false) {
+			if (!$line) break;
+
+			if ($line && strpos($line, '<insertfile>') !== false) {
 				$ifile = getSubstrBetween($line, '<insertfile>', '</insertfile>');
 
-				if (empty($ifile) || !is_file($ifile)) {
+				if (!is_file($ifile) || empty($ifile)) {
 					output('in "' . $file . '". Check placeholder file "' . $ifile . '"', true);
 				}
 
-				$ifile = preg_replace('/[^a-z0-9]+$/i', '', $ifile);
-				$line = file_get_contents($ifile);
+				$search = '<insertfile>' . $ifile . '</insertfile>';
+				$replace = trim(file_get_contents($ifile));
+				$line = str_replace($search, $replace, $line);
+			}
+
+			if ($line && strpos($line, '<insertfile base64>') !== false) {
+				$ifile = getSubstrBetween($line, '<insertfile base64>', '</insertfile>');
+
+				if (!is_file($ifile) || empty($ifile)) {
+					output('in "' . $file . '". Check placeholder file "' . $ifile . '"', true);
+				}
+
+				$search = '<insertfile base64>' . $ifile . '</insertfile>';
+				$replace = base64_encode(trim(file_get_contents($ifile)));
+				$line = str_replace($search, $replace, $line);
 			}
 
 			while (strpos($line, '<insertvar>') !== false) {
@@ -191,6 +214,9 @@ function fclignore($file) {
 		if ($pointer = fopen($file, 'r')) {
 			while (!feof($pointer)) {
 				$line = fgets($pointer);
+
+				if (!$line) break;
+
 				$line = trim($line);
 				$line = rtrim($line, DIRECTORY_SEPARATOR);
 
@@ -232,7 +258,7 @@ function hideg($file) {
 }
 
 function numbered() {
-	$list = array();
+	$list = [];
 
 	if (is_dir(MDIR) && is_dir(getConcatPath(MDIR, SRCDIR))) {
 		$list[] = strtolower(basename(getcwd()));
@@ -255,10 +281,10 @@ function numbered() {
 	return $list;
 }
 
-function output(string $text = '', bool $error = false) {
+function output(string $text = '', bool $error = false): void {
 	$text = ($error) ? 'ERROR: ' . $text : $text;
 
-	echo $text . "\n";
+	echo $text . PHP_EOL;
 
 	($error) ? exit(1) : null;
 }
