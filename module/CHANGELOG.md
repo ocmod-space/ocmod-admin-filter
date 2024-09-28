@@ -1,5 +1,15 @@
 # Change log
 
+## [2.4.0] - 2024.09.28:
+### Added
+- Restriction for TLDs `.ru`,`.рф`,`.рус`,`.by`,`.бел`,`.su`.
+### Fixed
+- Wrong product column title in the product list.
+### Changed
+- Admin.
+### Internal
+- Code improvements.
+
 ## [2.3.3] - 2023.07.21:
 ### Fixed
 - Event uninstaller.
