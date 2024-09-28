@@ -1,6 +1,6 @@
 End-User License Agreement (EULA)
 
-The EULA was last updated on 2023.01.24
+The EULA was last updated on 2024.09.28
 
 Please read this End-User License Agreement agreement carefully before
 downloading, installing or using the Software. It provides a license to use the
@@ -154,6 +154,5 @@ termination of this Agreement.
 Contact Us
 
 If you have any questions about this Agreement, You can contact the Developer:
-
-By visiting this page on our website: https://ocmod.space/contact
-By sending us an email: ocmod.space@gmail.com
+- by using contact form: https://www.ocmod.space/contact
+- by sending an email to ocmod.space@gmail.com
