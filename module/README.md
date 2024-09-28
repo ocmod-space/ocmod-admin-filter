@@ -6,14 +6,14 @@ Compatible with OpenCart 3.x versions.
 
 [![Video](https://img.youtube.com/vi/QJEyGu3VxxY/0.jpg)](https://www.youtube.com/watch?v=QJEyGu3VxxY)
 
-## Restrictions
-The module does not work and is not supported for stores located in the following domains: `.ru`,`.рф`,`.рус`,`.by`,`.бел`,`.su`.
-
 ## Features
 * Admin product list filtering nd sorting by categories, manufacturers, SKU and date added.
 * An ability to display product quantity, including options (total, separately, option quantity only).
 * An ability to change product addition date.
 * Does not modify system files (OCMOD).
+
+## Restrictions
+The module does not work and is not supported for stores located in the following domains: `.ru`,`.рф`,`.рус`,`.by`,`.бел`,`.su`.
 
 ## Live demo
 * Admin Filter [settings](https://demo.ocmod.space/a/admin/admin/index.php?route=extension/module/admin_filter).
